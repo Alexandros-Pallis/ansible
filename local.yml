@@ -1,0 +1,21 @@
+- hosts: localhost
+  pre_tasks:
+  - name: Update Apt
+    become: true
+    apt:
+      force_apt_get: true
+      update_cache: true
+      state: present
+    tags:
+      - install
+      - core
+      - php
+  tasks:
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/git-setup.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/node.yml
+    - import_tasks: tasks/core-setup.yml
+    - import_tasks: tasks/nvim-setup.yml
+    - import_tasks: tasks/php-setup.yml
+    - import_tasks: tasks/composer-setup.yml

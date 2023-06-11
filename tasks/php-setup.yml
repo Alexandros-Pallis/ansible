@@ -1,0 +1,21 @@
+- name: add software-properties-common
+  apt: name=software-properties-common
+  tags: &tags_for_php_tasks [ 'install', 'php' ]
+
+- name: add ppa:ondrej/php repository
+  ansible.builtin.apt_repository:
+    repo: ppa:ondrej/php
+    state: present
+  become: true
+  tags: *tags_for_php_tasks
+
+- name: Install php7.4
+  ansible.builtin.apt:
+    pkg:
+      - php7.4
+      - php7.4-mbstring
+      - php7.4-curl
+      - php7.4-xml
+      - php7.4-gd
+  become: true
+  tags: *tags_for_php_tasks

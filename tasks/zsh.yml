@@ -2,15 +2,20 @@
   apt: name=zsh
   tags:
     - zsh
+    - install
+  become: true
 - name: Change shell
   shell: chsh -s `which zsh`
   tags:
     - zsh
+    - install
+  become: true
 - name: Install oh my zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   become_user: apallis
   tags:
     - zsh
+    - install
 - name: Install zsh autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions'
@@ -18,8 +23,10 @@
   become_user: apallis
   tags:
     - zsh
+    - install
 - name: Update zshrc
   shell: sed -i 's/(git/(git zsh-suggestions/i' ~/.zshrc
   become_user: apallis
   tags:
     - zsh
+    - install

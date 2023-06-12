@@ -1,5 +1,6 @@
 - name: add software-properties-common
   apt: name=software-properties-common
+  become: true
   tags: &tags_for_php_tasks [ 'install', 'php' ]
 
 - name: add ppa:ondrej/php repository

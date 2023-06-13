@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+ansible-playbook --ask-become-pass --ask-vault-password --extra-vars "source_key=/home/apallis/ansible/.ssh/id_ed25519 dest_key=/home/apallis/.shh/id_ed25519" -t $1 local.yml

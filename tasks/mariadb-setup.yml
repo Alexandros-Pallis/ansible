@@ -1,0 +1,6 @@
+- name: Install mariadb server
+  become: true
+  apt:
+    name: mariadb-client
+  tags: &tags_for_mariadb_setup ["install",  "mysql", "mariadb",  "database"]
+

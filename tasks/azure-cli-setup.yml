@@ -1,0 +1,7 @@
+- name: Install azure cli
+  shell: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  become: true
+  tags:
+    - install
+    - azure
+

@@ -16,6 +16,9 @@
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/node.yml
     - import_tasks: tasks/core-setup.yml
+    - import_tasks: tasks/aws-cli-setup.yml
+    - import_tasks: tasks/azure-cli-setup.yml
+    - import_tasks: tasks/mariadb-setup.yml
     - import_tasks: tasks/nvim-setup.yml
     - import_tasks: tasks/php-setup.yml
     - import_tasks: tasks/composer-setup.yml

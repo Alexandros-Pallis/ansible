@@ -1,0 +1,20 @@
+- name: set variables
+  set_fact:
+    home: "{{ lookup('env', 'HOME') }}"
+
+- name: Download aws zip
+  ansible.builtin.get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: "{{ home }}/awscliv2.zip"
+  tags: &tags_for_aws_tasks [ 'install', 'aws' ]
+
+- name: Unzip aws.zip
+  ansible.builtin.unarchive:
+    src: "{{ home }}/awscliv2.zip"
+    dest: "{{ home }}/"
+  tags: *tags_for_aws_tasks
+
+- name: Install aws cli
+  shell: "{{ home }}/aws/install"
+  become: true
+  tags: *tags_for_aws_tasks

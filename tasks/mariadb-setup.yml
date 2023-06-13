@@ -1,4 +1,4 @@
-- name: Install mariadb server
+- name: Install mariadb client
   become: true
   apt:
     name: mariadb-client
